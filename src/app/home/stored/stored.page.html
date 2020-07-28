@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Receipts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card
+      *ngFor="let photo of photoService.photos; index as position">
+    <ion-img *ngIf="photo" src="{{ photo }}" src="{{ photo.base64 ? photo.base64 : photo.webviewPath }}">
+    </ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>{{photo.timestamp}}</ion-card-subtitle>
+      <ion-card-subtitle>This receipt is for £{{ photo.amount }}.</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  <router-outlet></router-outlet>
+</ion-content>
